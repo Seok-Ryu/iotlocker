@@ -1,0 +1,39 @@
+<div ng-view>
+
+  <div>
+    <h3>Service Status</h3>
+    <div>
+
+      <!--<div class="alert" ng-class="style.gatewaysState">Locker in {{model.connectedConditionOfGateways}}</div>-->
+      <div class="alert" ng-class="model.isAllConnected ? 'alert-success': 'alert-danger'">Locker in {{model.isAllConnected ? "Online" : "OffLine"}}</div>
+      <!--<div class="alert" ng-class="style.gatewaysState">Gateway b is </div>-->
+    </div>
+    <div></div>
+    <div>
+      <!--<div class="alert" ng-class="style.sensorsState">Sensors is {{model.connectedConditionOfSensors}}</div>-->
+      <!--<div class="alert" ng-class="style.sensorsState">Sensors b is </div>-->
+    </div>
+
+    <hr/>
+  </div>
+
+  <h3>Locker Status</h3>
+  <button type="button" class="btn btn-block active" ng-class="style.activatedRule" ng-click="toggleRuleStatus()">Locker {{model.rule.status}}</button>
+  <hr/>
+
+  <h3>Latest Detection</h3>
+  <div>
+    <span>{{model.motionSensor.series.time | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+  </div>
+  <div ui-view  >
+    <div>
+      <img class="latestSnapshot" ng-src= '{{model.cameraSensor.series.value.result.url}}' alt="Latest Snapshot"/>
+    </div>
+    <div>
+      <!--<span> Device : {{model.pictureInfo.device}}</span>
+      <span> date : {{model.pictureInfo.date}}</span>-->
+    </div>
+  </div>
+
+
+</div>

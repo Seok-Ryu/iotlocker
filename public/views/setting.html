@@ -1,0 +1,29 @@
+<h1>Status</h1>
+<div>
+  <div class="panel" ng-class="gateway.status.value === 'on' ? 'panel-success' : 'panel-danger'" ng-repeat="gateway in model.gateways">
+    <div class="panel-heading">{{gateway.name}} status {{gateway.status.value}}</div>
+    <div class="panel-body">
+      <ul class="list-group">
+        <li class="list-group-item"
+            ng-class="sensor.status.value === 'on' ? 'list-group-item-success' : 'list-group-item-danger'"
+            ng-repeat="sensor in gateway.sensors">
+          {{sensor.name}} : {{sensor.status.value}}
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</div>
+<div>
+  <button class="btn btn-default" ng-click="testCamera()">Camera Test</button>
+  <img class="testPicture" ng-src="{{model.testpicture}}"/>
+    <!--{{gateway.name}} status {{gateway.status.value}}
+    <li class="alert" ng-class="sensor.status.value === 'on' ? 'alert-success' : 'alert-danger'" ng-repeat="sensor in gateway.sensors">
+      {{sensor.name}} : {{sensor.status.value}}
+    </li>
+  </ul>-->
+</div>
+<div>
+  <button class="btn btn-default" ng-click="logout()">Logout</button>
+</div>
